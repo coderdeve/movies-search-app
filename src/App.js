@@ -3,6 +3,9 @@ import axios from "axios";
 import styled from "styled-components";
 import MovieComponent from "./components/MovieComponent";
 import MovieInfoComponent from "./components/MovieInfoComponent";
+import LogoMovieImage from "./images/movie-icon.png";
+import LogoSearchIcon from "./images/search-icon.svg";
+import LogoMovieListContainerPlaceholder from "./images/movie-icon-1.png";
 
 export const API_KEY = "c483fac3";
 
@@ -100,11 +103,11 @@ function App() {
     <Container>
       <Header>
         <AppName>
-          <MovieImage src="/movie-icon.png"/>
+          <MovieImage src={LogoMovieImage}/>
           تطبيق باحث الافلام
         </AppName>
         <SearchBox>
-          <SearchIcon src="/search-icon.svg"/>
+          <SearchIcon src={LogoSearchIcon}/>
           <SearchInput placeholder="ابحث بالانجليزية" value={searchQuery} onChange={onTextChange} />
         </SearchBox>
       </Header>
@@ -112,7 +115,7 @@ function App() {
       <MovieListContainer>
         {movieList?.length
           ? ( movieList.map((movie, index) => ( <MovieComponent key={index} movie={movie} onMovieSelect={onMovieSelect} />))
-            )  : ( <Placeholder src="/movie-icon-1.png" /> )}
+            )  : ( <Placeholder src={LogoMovieListContainerPlaceholder} /> )}
       </MovieListContainer>
     </Container>
   );
